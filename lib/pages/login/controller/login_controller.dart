@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_littlecakestory/route/app_pages.dart';
+import 'package:flutter_getx_littlecakestory/service/user_remote_services.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:get_storage/get_storage.dart';
@@ -8,9 +9,10 @@ class LoginController extends GetxController{
 
   final GlobalKey <FormState> loginFormKey = GlobalKey<FormState>();
 
-  late TextEditingController emailController, passwordController;
+  late TextEditingController emailController, passwordController, forgotPasswordEmailController;
+  
 
-  final userData = GetStorage(); 
+  final appData = GetStorage(); 
 
   var email = '';
   var password = '';
@@ -22,6 +24,7 @@ class LoginController extends GetxController{
     super.onInit();
     emailController = TextEditingController();
     passwordController = TextEditingController();
+    forgotPasswordEmailController = TextEditingController();
     loadPreference();
   }
 
@@ -42,44 +45,9 @@ class LoginController extends GetxController{
     super.dispose();
   }
 
-  // String? validateEmail(String email) {
-  //   if (!GetUtils.isEmail(email)) {
-  //     return "Provide valid Email";
-  //   }
-  //   return null;
-  // }
-
-  // String? validatePassword(String password) {
-  //   if (password.length < 6) {
-  //     return "Password must be of 6 characters";
-  //   }
-  //   return null;
-  // }
-
   void navigateSignUp(){
 
     Get.offNamed(AppRoutes.Signup);
-  }
-
-  void checkLogin(email, password) {
-    final isValid = loginFormKey.currentState!.validate();
-    if (!isValid) {
-      return;
-    }
-    loginFormKey.currentState!.save();
-
-    if(email != "" && password != ""){
-      print("Sucessful");
-
-      userData.write("isLogged", true);
-      userData.write("email", email);
-
-      // Get.to(OnlineShoppingPage());
-
-    }else {
-
-      Get.snackbar("Error", "Please enter your email and password !!!");
-    }
   }
 
   void rememberEmailPassword (value, email, password){
@@ -88,14 +56,14 @@ class LoginController extends GetxController{
 
       Get.bottomSheet(
         Container(
-          height: 50,
-          color: Colors.blue,
+          height: 30,
+          color: Colors.red[200],
           child: Column(
             children: [
               Text("Email / Password is empty",
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 14),)
+                fontSize: 16),)
             ],
           ),
         )
@@ -113,20 +81,20 @@ class LoginController extends GetxController{
     
     if(value==true){
 
-      userData.write("email", email);
-      userData.write("password", password);
-      userData.write("rememberme", value);
+      appData.write("email", email);
+      appData.write("password", password);
+      appData.write("rememberme", value);
 
       Get.bottomSheet(
         Container(
-          height: 50,
-          color: Colors.blue,
+          height: 30,
+          color: Colors.red[200],
           child: Column(
             children: [
               Text("Email & Password stored",
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 14),)
+                fontSize: 16),)
             ],
           ),
         )
@@ -134,20 +102,20 @@ class LoginController extends GetxController{
     return;
     }else{  
       
-      userData.write("email", '');
-      userData.write("password", '');
-      userData.write("rememberme", value);
+      appData.write("email", '');
+      appData.write("password", '');
+      appData.write("rememberme", value);
 
       Get.bottomSheet(
         Container(
-          height: 50,
-          color: Colors.blue,
+          height: 30,
+          color: Colors.red[200],
           child: Column(
             children: [
               Text("Remove Email & Password",
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 14),)
+                fontSize: 16),)
             ],
           ),
         )
@@ -162,12 +130,53 @@ class LoginController extends GetxController{
 
   Future<void> loadPreference()async {
 
-    String email = userData.read("email")??'';
-    String password = userData.read("password")??'';
-    rememberMe= (userData.read("rememberme")??false);
+    String email = appData.read("email")??'';
+    String password = appData.read("password")??'';
+    rememberMe= (appData.read("rememberme")??false);
 
     emailController.text=email;
     passwordController.text=password;
     update();
+  }
+
+  void forgotPasswordDialog(){
+
+    Get.defaultDialog(
+      title: "Forgot Your Password ?",
+      content: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(15,0,15,0),
+            child: TextField(
+              controller: forgotPasswordEmailController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                hintText: "Email"
+              ),
+            ),
+          )
+        ],
+      ),
+      textConfirm: "Submit",
+      textCancel: "Cancel",
+      onConfirm:() => Get.back(),
+      onCancel: () => Get.back(),
+      cancelTextColor: Colors.black,
+      confirmTextColor: Colors.white,
+      buttonColor: Colors.red[200],
+    );
+  }
+
+  void loginUser(){
+
+    print(emailController.text.toString());
+    print(passwordController.text.toString());
+
+    UserRemoteServices.loginUser(emailController.text.toString(), passwordController.text.toString());
+  }
+
+  void loginAsGuest(){
+
+    Get.offNamed(AppRoutes.BottomNavigation);
   }
 }

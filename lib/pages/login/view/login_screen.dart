@@ -96,7 +96,9 @@ class LoginScreen extends GetView<LoginController> {
                         ],
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          controller.forgotPasswordDialog();
+                        },
                         child: Text(
                           "Forgot Password",
                           style: TextStyle(
@@ -118,7 +120,9 @@ class LoginScreen extends GetView<LoginController> {
                           ),
                           height: screenHeight/18,
                           color: Colors.red[200],
-                          onPressed: () {  },
+                          onPressed: () {
+                            controller.loginUser();
+                          },
                           child: Text("Login",
                           style: TextStyle(
                             color: Colors.white,
@@ -156,7 +160,7 @@ class LoginScreen extends GetView<LoginController> {
                   minWidth: screenWidth/1.14,
                   color: Colors.red[200],
                   onPressed:(){
-          
+                    controller.loginAsGuest();
                   },
                   child: Text("Continue as A Guest",
                     style: TextStyle(

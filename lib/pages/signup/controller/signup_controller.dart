@@ -13,6 +13,7 @@ class SignUpController extends GetxController{
 
   void navigateLogin(){
 
+    
     Get.offNamed(AppRoutes.Login);
   }
 

@@ -23,7 +23,7 @@ class AccountMenu extends StatelessWidget {
       margin: const EdgeInsets.fromLTRB(30, 15, 30,10),
       child: MaterialButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        color: Get.theme.cardColor,
+        color: Theme.of(context).cardColor,
         onPressed: press,
         child: Row(
           children: <Widget>[

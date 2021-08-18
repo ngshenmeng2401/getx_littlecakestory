@@ -15,7 +15,7 @@ class SplashScreen extends GetView<SplashController> {
             scale: 0.5,),
             CircularProgressIndicator(color: Colors.red[200],),
             SizedBox(height:10),
-            Text("Loading"),
+            Text("Loading".tr),
           ],
         ),
       )

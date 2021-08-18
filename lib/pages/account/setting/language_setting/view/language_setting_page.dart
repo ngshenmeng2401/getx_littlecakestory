@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_littlecakestory/pages/account/setting/language_setting/controller/language_controller.dart';
+import 'package:get/get.dart';
 
 class LanguageSettingPage extends StatelessWidget {
-  const LanguageSettingPage({ Key? key }) : super(key: key);
+  const LanguageSettingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
-    int? languageButton;
 
     return Scaffold(
       appBar: AppBar(
@@ -16,24 +16,41 @@ class LanguageSettingPage extends StatelessWidget {
         child: Center(
           child: Card(
             margin: const EdgeInsets.fromLTRB(10, 20, 10, 0),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: Column(
               children: [
-                ListTile(
-                  title: Text("English"),
-                  trailing: Radio(
-                    activeColor: Colors.red[200],
-                    value: 1, 
-                    groupValue: languageButton, 
-                    onChanged: (value){}),
+                GetBuilder<LanguageSettingController>(
+                  init: LanguageSettingController(),
+                  builder: (controller) {
+                    return ListTile(
+                      title: Text("English"),
+                      trailing: Radio(
+                          activeColor: Colors.red[200],
+                          value: controller.language[0],
+                          groupValue: controller.selectLanguage,
+                          onChanged: (value) {
+                            var locale = Locale('en', 'US');
+                            controller.clickLanguage(value,locale);
+                          }),
+                    );
+                  },
                 ),
-                ListTile(
-                  title: Text("华语"),
-                  trailing: Radio(
-                    activeColor: Colors.red[200],
-                    value: 2, 
-                    groupValue: languageButton, 
-                    onChanged: (value){}),
+                GetBuilder<LanguageSettingController>(
+                  init: LanguageSettingController(),
+                  builder: (controller) {
+                    return ListTile(
+                      title: Text("华语"),
+                      trailing: Radio(
+                          activeColor: Colors.red[200],
+                          value: controller.language[1],
+                          groupValue: controller.selectLanguage,
+                          onChanged: (value) {
+                            var locale = Locale('zh', 'Hans');
+                            controller.clickLanguage(value,locale);
+                          }),
+                    );
+                  },
                 ),
               ],
             ),

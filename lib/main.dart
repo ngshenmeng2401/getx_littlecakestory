@@ -5,6 +5,8 @@ import 'package:flutter_getx_littlecakestory/theme/light_theme.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import 'language/translation_service.dart';
+
 final appData = GetStorage();
 void main() async {
   await GetStorage.init();
@@ -26,6 +28,9 @@ class MyApp extends StatelessWidget {
       theme: isDarkMode ? CustomDarkTheme.darktheme : CustomLightTheme.lighttheme,
       // darkTheme: CustomDarkTheme.darktheme,
       themeMode: ThemeMode.system,
+      locale: TranslationService.locale,
+      fallbackLocale: TranslationService.fallbackLocale,
+      translations: TranslationService(),
     );
   }
 }

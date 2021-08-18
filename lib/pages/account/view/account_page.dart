@@ -3,12 +3,14 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_littlecakestory/pages/account/controller/account_controller.dart';
 import 'package:flutter_getx_littlecakestory/pages/account/view/account_menu.dart';
+import 'package:flutter_getx_littlecakestory/pages/cart/controller/cart_item_controller.dart';
 import 'package:flutter_getx_littlecakestory/route/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class AccountPage extends GetView<AccountController> {
 
+  final cartItemController = Get.put(CartItemController());
   final appData = GetStorage();
 
   @override
@@ -22,6 +24,61 @@ class AccountPage extends GetView<AccountController> {
     return Scaffold(
       appBar: AppBar(
         title: Text("LITTLE CAKE STORY"),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 15, 5, 0),
+            child: Container(
+              width: 30,
+              height: 10,
+              child: GestureDetector(
+                onTap: () {
+                  Get.toNamed(AppRoutes.CartPage);
+                },
+                child: Stack(
+                  children: <Widget>[
+                    Icon(
+                      Icons.shopping_cart_outlined,
+                      size: 28,
+                      color: Colors.white,
+                    ),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                          width: 18,
+                          height: 18,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.white,
+                            ),
+                            color: Colors.red[300],
+                            shape: BoxShape.circle),
+                          child: Stack(
+                            children: <Widget>[
+                              Positioned(
+                                top: 1,
+                                left: 4,
+                                child: GetX<CartItemController>(
+                                  builder: (controller) {
+                                    return Text(
+                                      controller.totalQty.toString(),
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.white),
+                                      textAlign: TextAlign.center,
+                                    );
+                                  },
+                                ),
+                              ),
+                            ]
+                          ),
+                      )
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -84,28 +141,28 @@ class AccountPage extends GetView<AccountController> {
               ),),
               AccountMenu(
                 icon: Icon(Icons.history),
-                text: "Payment History",
+                text: "Payment_History".tr,
                 press: (){
                   print(email);
                 },
               ),
               AccountMenu(
                 icon: Icon(Icons.favorite_outline),
-                text: "Favourite",
+                text: "Favourite".tr,
                 press: (){
-
+                  Get.toNamed(AppRoutes.FavouritePage);
                 },
               ),
               AccountMenu(
                 icon: Icon(Icons.settings),
-                text: "Settings",
+                text: "Settings".tr,
                 press: (){
                   Get.toNamed(AppRoutes.SettingsPage);
                 },
               ),
               AccountMenu(
                 icon: Icon(Icons.logout, color: Colors.red),
-                text: "Logout",
+                text: "Logout".tr,
                 press: (){
                   controller.logoutUser();
                 },

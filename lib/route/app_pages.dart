@@ -1,4 +1,5 @@
 import 'package:flutter_getx_littlecakestory/pages/account/binding/account_binding.dart';
+import 'package:flutter_getx_littlecakestory/pages/account/favourite/view/favourite_page.dart';
 import 'package:flutter_getx_littlecakestory/pages/account/setting/language_setting/view/language_setting_page.dart';
 import 'package:flutter_getx_littlecakestory/pages/account/setting/theme_setting/view/theme_setting.dart';
 import 'package:flutter_getx_littlecakestory/pages/account/setting/view/setting_screen.dart';
@@ -50,22 +51,18 @@ class AppPages{
     GetPage(
       name: AppRoutes.HomePage,
       page: () => HomePage(),
-      // binding: BottomNavigationBarBinding(),
     ),
     GetPage(
       name: AppRoutes.SearchPage,
       page: () => SearchPage(),
-      // binding: BottomNavigationBarBinding(),
     ),
     GetPage(
       name: AppRoutes.CartPage,
       page: () => CartPage(),
-      // binding: BottomNavigationBarBinding(),
     ),
     GetPage(
       name: AppRoutes.AccountPage,
       page: () => AccountPage(),
-      binding: AccountBinding(),
     ),
 
     GetPage(
@@ -81,6 +78,11 @@ class AppPages{
     GetPage(
       name: AppRoutes.ThemePage,
       page: () => ThemeSettingPage(),
+    ),
+
+    GetPage(
+      name: AppRoutes.FavouritePage,
+      page: () => FavouritePage(),
     ),
   ];
 

@@ -24,7 +24,8 @@ class Product {
     String? productDetail;
     String? type;
 
-    final isFavorite = false.obs;
+    var isFavorite = false.obs;
+    var selectFavorites = true.obs;
 
     factory Product.fromJson(Map<String, dynamic> json) => Product(
         productNo: json["product_no"],

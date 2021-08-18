@@ -35,7 +35,7 @@ class SignUpScreen extends GetView<SignUpController> {
                           keyboardType: TextInputType.emailAddress,
                           controller: controller.emailController,
                           decoration: InputDecoration(
-                            labelText: "Email",
+                            labelText: "Email".tr,
                             icon: Icon(Icons.email,
                               color: Colors.red[200],)),
                         ),
@@ -46,7 +46,7 @@ class SignUpScreen extends GetView<SignUpController> {
                           keyboardType: TextInputType.name,
                           controller: controller.userNameController,
                           decoration: InputDecoration(
-                            labelText: "User Name",
+                            labelText: "User_Name".tr,
                             icon: Icon(Icons.people,
                               color: Colors.red[200],)),
                         ),
@@ -56,7 +56,7 @@ class SignUpScreen extends GetView<SignUpController> {
                         child: TextField(
                           controller: controller.passwordController,
                           decoration: InputDecoration(
-                            labelText: "Password",
+                            labelText: "Password".tr,
                             icon: Icon(Icons.lock,
                               color: Colors.red[200],)),
                             obscureText: true,
@@ -67,7 +67,7 @@ class SignUpScreen extends GetView<SignUpController> {
                         child: TextField(
                           controller: controller.confirmPasswordController,
                           decoration: InputDecoration(
-                            labelText: "Confirm Password",
+                            labelText: "Confirm_Password".tr,
                             icon: Icon(Icons.lock,
                               color: Colors.red[200],),
                             ),
@@ -88,7 +88,7 @@ class SignUpScreen extends GetView<SignUpController> {
                   onPressed: (){
                     controller.signUpDialog();
                   },
-                  child: Text("Sign Up",
+                  child: Text("Sign_Up".tr,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -98,9 +98,8 @@ class SignUpScreen extends GetView<SignUpController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Already have an account ?",
+                    Text("Already_have_an_account".tr,
                       style: TextStyle(
-                        color: Colors.black,
                         fontSize: 14,
                         // fontWeight: FontWeight.bold,
                       )),
@@ -109,7 +108,7 @@ class SignUpScreen extends GetView<SignUpController> {
                       onTap: (){
                         controller.navigateLogin();
                       },
-                      child: Text("Login",
+                      child: Text("Login".tr,
                       style: TextStyle(
                         color: Colors.red[200],
                         fontSize: 16,

@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'package:get/get.dart';
 
-List<OnlineProduct> onlineProductFromJson(String str) => 
-List<OnlineProduct>.from(json.decode(str).map((x) => OnlineProduct.fromJson(x)));
+List<Favourite> favouriteFromJson(String str) => List<Favourite>.from(json.decode(str).map((x) => Favourite.fromJson(x)));
 
-String onlineProductToJson(List<OnlineProduct> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String favouriteToJson(List<Favourite> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class OnlineProduct {
-    OnlineProduct({
+class Favourite {
+    Favourite({
         this.productNo,
         this.productName,
         this.originalPrice,
@@ -15,6 +14,7 @@ class OnlineProduct {
         this.rating,
         this.productDetail,
         this.type,
+        this.status,
     });
 
     String? productNo;
@@ -24,10 +24,11 @@ class OnlineProduct {
     String? rating;
     String? productDetail;
     String? type;
+    String? status;
 
-    final isFavorite = false.obs;
+    final isFavorite = true.obs;
 
-    factory OnlineProduct.fromJson(Map<String, dynamic> json) => OnlineProduct(
+    factory Favourite.fromJson(Map<String, dynamic> json) => Favourite(
         productNo: json["product_no"],
         productName: json["product_name"],
         originalPrice: json["original_price"],
@@ -35,6 +36,7 @@ class OnlineProduct {
         rating: json["rating"],
         productDetail: json["product_detail"],
         type: json["type"],
+        status: json["status"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -45,5 +47,6 @@ class OnlineProduct {
         "rating": rating,
         "product_detail": productDetail,
         "type": type,
+        "status": status,
     };
 }

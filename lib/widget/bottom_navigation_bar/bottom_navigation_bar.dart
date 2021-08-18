@@ -15,14 +15,12 @@ class BottomNavigationBarWidget extends StatelessWidget {
     return GetBuilder<BottomNavigationBarController>(
       builder: (controller){
         return Scaffold(
-
           body: SafeArea(
             child: IndexedStack(
               index: controller.tabIndex,
               children: [
                 HomePage(),
                 SearchPage(),
-                CartPage(),
                 AccountPage(),
               ],
             ),
@@ -43,10 +41,6 @@ class BottomNavigationBarWidget extends StatelessWidget {
               _bottomNavigationBarItem(
                 icon: CupertinoIcons.search,
                 label: 'Search',
-              ),
-              _bottomNavigationBarItem(
-                icon: CupertinoIcons.cart,
-                label: 'Cart',
               ),
               _bottomNavigationBarItem(
                 icon: CupertinoIcons.person,

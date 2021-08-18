@@ -42,7 +42,7 @@ class LoginScreen extends GetView<LoginController> {
                               keyboardType: TextInputType.emailAddress,
                               controller: _.emailController,
                               decoration: InputDecoration(
-                                labelText: "Email",
+                                labelText: "Email".tr,
                                 icon: Icon(Icons.email,
                                   color: Colors.red[200],)),
                             ),
@@ -58,7 +58,7 @@ class LoginScreen extends GetView<LoginController> {
                               controller: _.passwordController,
                               decoration:
                                   InputDecoration(
-                                    labelText: "Password",
+                                    labelText: "Password".tr,
                                     icon: Icon(Icons.lock,
                                       color: Colors.red[200],)),
                               obscureText: true,
@@ -92,7 +92,7 @@ class LoginScreen extends GetView<LoginController> {
                                 });
                             },
                           ),
-                          Text("Remember Me"),
+                          Text("Remember_Me".tr),
                         ],
                       ),
                       GestureDetector(
@@ -100,7 +100,7 @@ class LoginScreen extends GetView<LoginController> {
                           controller.forgotPasswordDialog();
                         },
                         child: Text(
-                          "Forgot Password",
+                          "Forgot_Password".tr,
                           style: TextStyle(
                             color: Colors.red[200],
                             fontWeight: FontWeight.bold,
@@ -121,9 +121,9 @@ class LoginScreen extends GetView<LoginController> {
                           height: screenHeight/18,
                           color: Colors.red[200],
                           onPressed: () {
-                            controller.loginUser();
+                            controller.navigateSignUp();
                           },
-                          child: Text("Login",
+                          child: Text("Sign_Up".tr,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -140,9 +140,9 @@ class LoginScreen extends GetView<LoginController> {
                           height: screenHeight/18,
                           color: Colors.red[200],
                           onPressed: () {
-                            controller.navigateSignUp();
+                            controller.loginUser();
                           },
-                          child: Text("Sign Up",
+                          child: Text("Login".tr,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -162,7 +162,7 @@ class LoginScreen extends GetView<LoginController> {
                   onPressed:(){
                     controller.loginAsGuest();
                   },
-                  child: Text("Continue as A Guest",
+                  child: Text("Continue_as_A_Guest".tr,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,

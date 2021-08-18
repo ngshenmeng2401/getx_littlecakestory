@@ -60,7 +60,7 @@ class LoginController extends GetxController{
           color: Colors.red[200],
           child: Column(
             children: [
-              Text("Email / Password is empty",
+              Text("Email_Password_is_empty".tr,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16),)
@@ -91,7 +91,7 @@ class LoginController extends GetxController{
           color: Colors.red[200],
           child: Column(
             children: [
-              Text("Email & Password stored",
+              Text("Email_Password_stored".tr,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16),)
@@ -112,7 +112,7 @@ class LoginController extends GetxController{
           color: Colors.red[200],
           child: Column(
             children: [
-              Text("Remove Email & Password",
+              Text("Removed_Email_Password".tr,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16),)
@@ -142,7 +142,7 @@ class LoginController extends GetxController{
   void forgotPasswordDialog(){
 
     Get.defaultDialog(
-      title: "Forgot Your Password ?",
+      title: "Forgot_Your_Password".tr,
       content: Column(
         children: [
           Padding(
@@ -151,14 +151,14 @@ class LoginController extends GetxController{
               controller: forgotPasswordEmailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                hintText: "Email"
+                hintText: "Email".tr
               ),
             ),
           )
         ],
       ),
-      textConfirm: "Submit",
-      textCancel: "Cancel",
+      textConfirm: "Submit".tr,
+      textCancel: "Cancel".tr,
       onConfirm:() => Get.back(),
       onCancel: () => Get.back(),
       cancelTextColor: Colors.black,

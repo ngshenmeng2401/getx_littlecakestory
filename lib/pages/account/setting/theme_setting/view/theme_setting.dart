@@ -23,8 +23,8 @@ class ThemeSettingPage extends GetView<ThemeSettingController> {
                   builder: (controller) {
                     return ListTile(
                       title:
-                          Text("Dark Theme", style: TextStyle(fontSize: 18)),
-                      subtitle: Text("The primary color will become dark",
+                          Text("Dark_Theme".tr, style: TextStyle(fontSize: 18)),
+                      subtitle: Text("Dark_Theme_Desciption".tr,
                           style: TextStyle(fontSize: 14)),
                       trailing: Radio(
                         activeColor: Colors.red[200],
@@ -41,8 +41,8 @@ class ThemeSettingPage extends GetView<ThemeSettingController> {
                   init: ThemeSettingController(),
                   builder: (controller) {
                     return ListTile(
-                      title: Text("Light Theme", style: TextStyle(fontSize: 18)),
-                      subtitle: Text("The primary color will become white",
+                      title: Text("Light_Theme".tr, style: TextStyle(fontSize: 18)),
+                      subtitle: Text("Light_Theme_Desciption".tr,
                           style: TextStyle(fontSize: 14)),
                       trailing: Radio(
                         activeColor: Colors.red[200],

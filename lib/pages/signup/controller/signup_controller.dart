@@ -20,20 +20,20 @@ class SignUpController extends GetxController{
   void signUpDialog(){
 
     Get.defaultDialog(
-      title: "Are you sure ?",
+      title: "Are_you_sure".tr,
       content: Column(
         children: [
-          Text("")
+          Padding(padding: const EdgeInsets.all(0)),
         ],
       ),
-      textConfirm: "Yes",
-      textCancel: "No",
+      textConfirm: "Yes".tr,
+      textCancel: "No".tr,
       onConfirm: () {
         Get.back();
         checkSignUp();
       },
       onCancel: () => Get.back(),
-      cancelTextColor: Colors.black,
+      cancelTextColor: Colors.red[200],
       confirmTextColor: Colors.white,
       buttonColor: Colors.red[200],
     );
@@ -49,7 +49,7 @@ class SignUpController extends GetxController{
     if(email.isEmpty && username.isEmpty && password.isEmpty && confirmPassword.isEmpty){
 
       Fluttertoast.showToast(
-        msg: "Please fill in all textfield",
+        msg: "Please_fill_in_all_textfield".tr,
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 1,
@@ -60,7 +60,7 @@ class SignUpController extends GetxController{
     }else if (email.isEmpty){
 
       Fluttertoast.showToast(
-        msg: "Email is empty",
+        msg: "Email_is_empty".tr,
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 1,
@@ -71,7 +71,7 @@ class SignUpController extends GetxController{
     }else if (username.isEmpty){
 
       Fluttertoast.showToast(
-        msg: "UserName is empty",
+        msg: "UserName_is_empty".tr,
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 1,
@@ -82,7 +82,7 @@ class SignUpController extends GetxController{
     }else if (password.isEmpty || confirmPassword.isEmpty){
 
       Fluttertoast.showToast(
-        msg: "Password is empty",
+        msg: "Password_is_empty".tr,
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 1,
@@ -93,7 +93,7 @@ class SignUpController extends GetxController{
     }else if (password!=confirmPassword || confirmPassword!=password){
 
       Fluttertoast.showToast(
-        msg: "Both Password are different",
+        msg: "Both_Password_are_different".tr,
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 1,

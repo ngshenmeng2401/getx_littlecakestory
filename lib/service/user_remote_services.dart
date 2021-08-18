@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_getx_littlecakestory/route/app_pages.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
@@ -26,7 +28,14 @@ class UserRemoteServices {
     if (response.statusCode == 200) {
       var resp = response.body;
 
-      Get.snackbar(resp,"Register " + resp);
+      Fluttertoast.showToast(
+        msg: "Register_Success".tr,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red[200],
+        textColor: Colors.white,
+        fontSize: 16.0);
       return resp;
     } else {
       //show error message

@@ -1,15 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_littlecakestory/pages/home/controller/home_controller.dart';
+import 'package:flutter_getx_littlecakestory/model/favourite.dart';
+import 'package:flutter_getx_littlecakestory/pages/account/favourite/controller/favourite_controller.dart';
 import 'package:flutter_getx_littlecakestory/pages/home/model/product.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-class ProductTile extends StatelessWidget {
+class FavouriteProductTile extends GetView<FavouriteController> {
 
   final Product product;
-  ProductTile(this.product);
-  final homeController = Get.put(HomeController());
+  FavouriteProductTile(this.product);
+  final favouriteController = Get.put(FavouriteController());  
   final appData = GetStorage();
 
   @override
@@ -17,7 +18,7 @@ class ProductTile extends StatelessWidget {
 
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-    String? email = appData.read("keepLogin");
+
 
     return Card(
       elevation: 2,
@@ -59,17 +60,13 @@ class ProductTile extends StatelessWidget {
                 child: Obx(() => CircleAvatar(
                   backgroundColor: Colors.white70,
                   child: IconButton(
-                    icon: product.isFavorite.value
+                    icon: product.isFavorite.value == true
                         ? Icon(Icons.favorite_rounded,color: Colors.red,)
                         : Icon(Icons.favorite_border,color: Colors.red[200],),
                     onPressed: () {
-                      print(email);
-                      if (email == null){
-                        homeController.loginMessage();
-                      }else{
+                      // print(email);
                         product.isFavorite.toggle();
-                        homeController.addToFavourite(product.isFavorite.value,product.productNo);
-                      }
+                        // favouriteController.removeFavorite(product.productNo);
                     },
                   ),
                 )))
@@ -128,13 +125,9 @@ class ProductTile extends StatelessWidget {
                     color: Colors.red[200],
                     textColor: Colors.white,
                     onPressed: () {
-                      if (email == null){
-                        homeController.loginMessage();
-                      }else{
-                        homeController.addToCart(product.originalPrice,product.productNo);
-                      }
+                      // cartController.addToOnlineCart(product);
                     },
-                    child: Text("Add_to_cart".tr),
+                    child: Text("Add to cart"),
                   ),
                 )
               ],

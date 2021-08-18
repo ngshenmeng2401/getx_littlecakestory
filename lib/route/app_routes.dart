@@ -14,4 +14,5 @@ abstract class AppRoutes{
   static const SettingsPage = '/settingspage';
   static const ThemePage = '/themepage';
   static const LanguagePage = '/languagepage';
+  static const FavouritePage = '/favouritepage';
 }

@@ -9,7 +9,7 @@ const Map<String, String> zh_Hans = {
   "Login": "登入",
   "Sign_Up": "注册",
   "Continue_as_A_Guest": "直接观看软件",
-  "Already_have_an_account": "已经拥有账号 ?",
+  "Already_have_an_account": "已拥有账号 ?",
   "Email_Password_is_empty": "电子邮件或密码是空的",
   "Email_Password_stored": "已储存电子邮件和密码",
   "Removed_Email_Password": "已清除电子邮件和密码",

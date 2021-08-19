@@ -3,29 +3,37 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'english.dart';
-import 'mandarin.dart';
+import 'mandarin_simplified.dart';
+import 'mandarin_traditional.dart';
 
 class TranslationService extends Translations {
 
   static final fallbackLocale = Locale('zh', 'Hans');
   static final appData = GetStorage();
-  static final String selectLanguage = (appData.read("language") ?? '');
-  static String language1 ='en' , language2 = 'US' ;
+  static late String language1 ='' , language2 = '' ;
+  static Locale locale = Locale('', '');
   
-  static Locale checkLanguage(){
+  static Locale checkLanguage(String selectLanguage){
 
     if(selectLanguage=="华语"){
 
+      locale = Locale('zh', 'Hans');
       language1 = 'zh';
       language2 = 'Hans';
 
     }else if (selectLanguage=="English"){
 
+      locale = Locale('en', 'US');
       language1 = 'en';
       language2 = 'US';
+    }else if (selectLanguage=="華語繁體"){
+
+      locale = Locale('zh', 'HK');
+      language1 = 'zh';
+      language2 = 'HK';
     }
     
-    return Locale(language1, language2);
+    return locale;
   }
 
   @override
@@ -33,5 +41,6 @@ class TranslationService extends Translations {
     
         'zh_Hans': zh_Hans,
         'en_US': en_US,
+        'zh_HK': zh_HK,
   };
 }

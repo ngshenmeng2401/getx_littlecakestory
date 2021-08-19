@@ -40,13 +40,29 @@ class LanguageSettingPage extends StatelessWidget {
                   init: LanguageSettingController(),
                   builder: (controller) {
                     return ListTile(
-                      title: Text("华语"),
+                      title: Text("华语简体"),
                       trailing: Radio(
                           activeColor: Colors.red[200],
                           value: controller.language[1],
                           groupValue: controller.selectLanguage,
                           onChanged: (value) {
                             var locale = Locale('zh', 'Hans');
+                            controller.clickLanguage(value,locale);
+                          }),
+                    );
+                  },
+                ),
+                GetBuilder<LanguageSettingController>(
+                  init: LanguageSettingController(),
+                  builder: (controller) {
+                    return ListTile(
+                      title: Text("華語繁體"),
+                      trailing: Radio(
+                          activeColor: Colors.red[200],
+                          value: controller.language[2],
+                          groupValue: controller.selectLanguage,
+                          onChanged: (value) {
+                            var locale = Locale('zh', 'HK');
                             controller.clickLanguage(value,locale);
                           }),
                     );

@@ -161,7 +161,7 @@ class LoginController extends GetxController{
       textCancel: "Cancel".tr,
       onConfirm:() => Get.back(),
       onCancel: () => Get.back(),
-      cancelTextColor: Colors.black,
+      cancelTextColor: Colors.red[200],
       confirmTextColor: Colors.white,
       buttonColor: Colors.red[200],
     );

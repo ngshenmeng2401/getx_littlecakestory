@@ -28,7 +28,7 @@ class FavouritePage extends StatelessWidget {
                         color: Colors.red[200],
                       ),
                       Text(
-                        favouriteController.statusMsj.toString(),
+                        favouriteController.statusMsj.toString().tr,
                         style: TextStyle(fontSize: 20),
                       ),
                     ],
@@ -37,7 +37,7 @@ class FavouritePage extends StatelessWidget {
               }else if(favouriteController.productList.isEmpty){
                 return Center(
                   child: Text(
-                    favouriteController.statusMsj.toString(),
+                    favouriteController.statusMsj.toString().tr,
                     style: TextStyle(fontSize: 20),
                 ));
 

@@ -8,7 +8,14 @@ class LanguageSettingController extends GetxController{
   final List<String> language = ["English","华语"];
   var selectLanguage ;
   final appData = GetStorage();
+  // late var locale = Locale('en', 'US');
   late Locale locale;
+
+  @override
+  void onInit() {
+    loadLanguage();
+    super.onInit();
+  }
 
   void clickLanguage(value ,locale){
 
@@ -16,10 +23,19 @@ class LanguageSettingController extends GetxController{
     Get.updateLocale(locale);
     print(selectLanguage);
     print(locale.toString());
+    storeLanguage(value);
     update();
   }
 
-  void storeLanguage(){
+  void storeLanguage(value){
 
+    appData.write('language', value);
+
+  }
+
+  void loadLanguage(){
+
+    selectLanguage = (appData.read('language') ?? '');
+    print(selectLanguage);
   }
 }

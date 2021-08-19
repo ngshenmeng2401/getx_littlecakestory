@@ -25,7 +25,7 @@ class FavouriteController extends GetxController{
       if (products != null) {
         productList.assignAll(products);
       } else {
-        statusMsj("No data");
+        statusMsj("No_data".tr);
       }
     } finally {
       isLoading(false);

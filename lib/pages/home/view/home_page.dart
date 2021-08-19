@@ -97,7 +97,7 @@ class HomePage extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       Text(
-                        homeController.statusMsj.toString(),
+                        homeController.statusMsj.toString().tr,
                         style: TextStyle(fontSize: 20),
                       ),
                     ],

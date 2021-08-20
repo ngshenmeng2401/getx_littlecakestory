@@ -6,7 +6,7 @@ import 'package:get_storage/get_storage.dart';
 class LanguageSettingController extends GetxController{
   
   final List<String> language = ["English","华语简体","華語繁體"];
-  var selectLanguage ;
+  var selectLanguage = "English";
   var showLanguage;
   final appData = GetStorage();
   late String language1 ='' , language2 = '' ;

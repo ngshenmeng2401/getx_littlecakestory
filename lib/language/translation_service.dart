@@ -8,7 +8,7 @@ import 'mandarin_traditional.dart';
 
 class TranslationService extends Translations {
 
-  static final fallbackLocale = Locale('zh', 'Hans');
+  static final fallbackLocale = Locale('en', 'US');
   static final appData = GetStorage();
 
   @override

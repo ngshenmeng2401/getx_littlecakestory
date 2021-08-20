@@ -7,9 +7,10 @@ class LanguageSettingController extends GetxController{
   
   final List<String> language = ["English","华语简体","華語繁體"];
   var selectLanguage ;
+  var showLanguage;
   final appData = GetStorage();
-  // late var locale = Locale('en', 'US');
-  late Locale locale;
+  late String language1 ='' , language2 = '' ;
+  late Locale locale = Locale('en', 'US');
 
   @override
   void onInit() {
@@ -17,25 +18,49 @@ class LanguageSettingController extends GetxController{
     super.onInit();
   }
 
-  void clickLanguage(value ,locale){
+  void clickLanguage(value){
 
     selectLanguage = value;
-    Get.updateLocale(locale);
     print(selectLanguage);
-    print(locale.toString());
-    storeLanguage(value);
+    checkLanguage(value);
     update();
   }
 
-  void storeLanguage(value){
+  void checkLanguage(value){
+
+    if(value=="华语简体"){
+
+      locale = Locale('zh', 'Hans');
+      language1 = 'zh';
+      language2 = 'Hans';
+
+    }else if (value=="English"){
+
+      locale = Locale('en', 'US');
+      language1 = 'en';
+      language2 = 'US';
+    }else if (value=="華語繁體"){
+
+      locale = Locale('zh', 'HK');
+      language1 = 'zh';
+      language2 = 'HK';
+    }
+    Get.updateLocale(locale);
+    storeLanguage(value,locale.toString());
+  }
+
+  void storeLanguage(value,locale){
 
     appData.write('language', value);
+    appData.write('language2', locale);
 
   }
 
   void loadLanguage(){
 
     selectLanguage = (appData.read('language') ?? '');
+    showLanguage = (appData.read('language2') ?? '');
     print(selectLanguage);
+    print(showLanguage);
   }
 }

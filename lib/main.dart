@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final bool isDarkMode = appData.read("isDarkMode") ?? false;
-    final String selectLanguage = (appData.read("language") ?? '');
+    final String selectLanguage = (appData.read("language2") ?? '');
     return GetMaterialApp(
       title: 'Little Cake Story',
       debugShowCheckedModeBanner: false,
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: isDarkMode ? CustomDarkTheme.darktheme : CustomLightTheme.lighttheme,
       // darkTheme: CustomDarkTheme.darktheme,
       themeMode: ThemeMode.system,
-      locale: TranslationService.checkLanguage(selectLanguage),
+      locale: Locale(selectLanguage),
       fallbackLocale: TranslationService.fallbackLocale,
       translations: TranslationService(),
     );

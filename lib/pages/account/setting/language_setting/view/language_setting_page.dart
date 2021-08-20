@@ -30,8 +30,7 @@ class LanguageSettingPage extends StatelessWidget {
                           value: controller.language[0],
                           groupValue: controller.selectLanguage,
                           onChanged: (value) {
-                            var locale = Locale('en', 'US');
-                            controller.clickLanguage(value,locale);
+                            controller.clickLanguage(value);
                           }),
                     );
                   },
@@ -46,8 +45,7 @@ class LanguageSettingPage extends StatelessWidget {
                           value: controller.language[1],
                           groupValue: controller.selectLanguage,
                           onChanged: (value) {
-                            var locale = Locale('zh', 'Hans');
-                            controller.clickLanguage(value,locale);
+                            controller.clickLanguage(value);
                           }),
                     );
                   },
@@ -62,8 +60,7 @@ class LanguageSettingPage extends StatelessWidget {
                           value: controller.language[2],
                           groupValue: controller.selectLanguage,
                           onChanged: (value) {
-                            var locale = Locale('zh', 'HK');
-                            controller.clickLanguage(value,locale);
+                            controller.clickLanguage(value);
                           }),
                     );
                   },

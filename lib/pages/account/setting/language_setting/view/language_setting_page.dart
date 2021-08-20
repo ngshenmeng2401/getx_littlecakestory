@@ -10,7 +10,7 @@ class LanguageSettingPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Language"),
+        title: Text("Language".tr),
       ),
       body: SingleChildScrollView(
         child: Center(

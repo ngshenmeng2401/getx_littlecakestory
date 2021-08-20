@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_getx_littlecakestory/pages/account/view/account_page.dart';
-import 'package:flutter_getx_littlecakestory/pages/cart/view/cart_page.dart';
 import 'package:flutter_getx_littlecakestory/pages/home/view/home_page.dart';
 import 'package:flutter_getx_littlecakestory/pages/search/view/search_page.dart';
 import 'package:flutter_getx_littlecakestory/widget/bottom_navigation_bar/bottom_navigation_bar_controller.dart';

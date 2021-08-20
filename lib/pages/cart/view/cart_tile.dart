@@ -17,7 +17,6 @@ class CartTile extends GetView<CartController> {
     double screenWidth = MediaQuery.of(context).size.width;
     String? email = appData.read("keepLogin");
     double totalPrice = double.parse(cart.totalPrice);
-    int num = 0;
 
     return Card(
         elevation: 2,

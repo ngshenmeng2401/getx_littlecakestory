@@ -1,4 +1,3 @@
-import 'package:flutter_getx_littlecakestory/pages/account/binding/account_binding.dart';
 import 'package:flutter_getx_littlecakestory/pages/account/favourite/view/favourite_page.dart';
 import 'package:flutter_getx_littlecakestory/pages/account/setting/language_setting/view/language_setting_page.dart';
 import 'package:flutter_getx_littlecakestory/pages/account/setting/theme_setting/view/theme_setting.dart';

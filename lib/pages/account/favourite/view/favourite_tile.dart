@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_littlecakestory/model/favourite.dart';
 import 'package:flutter_getx_littlecakestory/pages/account/favourite/controller/favourite_controller.dart';
 import 'package:flutter_getx_littlecakestory/pages/home/model/product.dart';
 import 'package:get/get.dart';
